@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-center mb-6">Faça seu Login</h2>
+        <form id="loginForm">
+            <div class="mb-4">
+                <label class="block text-gray-700" for="email">E-mail</label>
+                <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700" for="password">Senha</label>
+                <input type="password" id="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Entrar</button>
+        </form>
+        <p class="text-center text-gray-600 mt-4">
+            <a href="#" class="text-blue-500 hover:underline">Esqueceu a senha?</a>
+        </p>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Simulação de credenciais válidas
+            const validEmail = "filmescriart@gmail.com";
+            const validPassword = "123456";
+
+            if (email === validEmail && password === validPassword) {
+                localStorage.setItem("usuarioLogado", "true"); // Salva login no navegador
+                window.location.href = "home.html"; // Redireciona para a página principal
+            } else {
+                alert("E-mail ou senha incorretos!");
+            }
+        });
+    </script>
+</body>
+</html>
